@@ -7,10 +7,13 @@ namespace BoundedPaths.Editor
     [CreateAssetMenu]
     internal class DefaultSettingsInitializer : ScriptableObject
     {
+        [Header(nameof(BoundedPathSettings))]
         [SerializeField] private Material defaultPathBoundsMaterial;
         [SerializeField] private Preset defaultPathBoundsTransform;
-        [SerializeField] private Preset defaultPathBounds;
         
+        [Header(nameof(PathBoundsSettings))]
+        [SerializeField] private Preset defaultPathBounds;
+
         private void Awake()
         {
             ResetDefaultSettings();
