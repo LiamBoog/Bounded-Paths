@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,13 +7,16 @@ using BoundedPaths.Editor.Settings;
 using UnityEditor;
 using UnityEngine;
 
-[InitializeOnLoad]
-public class DefaultSettingsInitializer : MonoBehaviour
+namespace BoundedPaths.Editor
 {
-    static DefaultSettingsInitializer()
+    [InitializeOnLoad]
+    public class DefaultSettingsInitializer : MonoBehaviour
     {
-        Debug.Log(BoundedPathSettings.DefaultPathMaterial);
-        Debug.Log((Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), Directory.GetCurrentDirectory()));
+        static DefaultSettingsInitializer()
+        {
+            Debug.Log(BoundedPathSettings.DefaultPathMaterial);
+            Debug.Log((AppDomain.CurrentDomain.BaseDirectory + $"{nameof(DefaultSettingsInitializer)}.cs", Directory.GetCurrentDirectory()));
         
+        }
     }
 }
