@@ -30,7 +30,7 @@ namespace BoundedPaths.Editor.Settings
         public static Preset DefaultBounds
         {
             get => instance.defaultBounds;
-            private set
+            set
             {
                 instance.defaultBounds = value;
                 instance.Save(true);

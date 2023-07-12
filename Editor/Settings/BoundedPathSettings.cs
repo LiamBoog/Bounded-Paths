@@ -32,7 +32,7 @@ namespace BoundedPaths.Editor.Settings
         public static Material DefaultPathMaterial
         {
             get => instance.defaultPathMaterial;
-            private set
+            set
             {
                 instance.defaultPathMaterial = value;
                 instance.Save(true);
@@ -41,7 +41,7 @@ namespace BoundedPaths.Editor.Settings
         public static Preset DefaultTransform
         {
             get => instance.defaultTransform;
-            private set
+            set
             {
                 instance.defaultTransform = value;
                 instance.Save(true);

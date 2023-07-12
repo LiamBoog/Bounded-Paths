@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a14506b470a1f04b8f957c741e22b89, type: 3}
+  m_Name: DefaultSettingsInitializer
+  m_EditorClassIdentifier: 
+  defaultPathBoundsMaterial: {fileID: 2100000, guid: 61ecb9d1829f85f41be4d335f4261354, type: 2}
+  defaultPathBoundsTransform: {fileID: 2655988077585873504, guid: 339ff0e2087a67041a3252c53999fd3b, type: 2}
+  defaultPathBounds: {fileID: 2655988077585873504, guid: d661f3e3a4e4fba458a5f3402b3a6a50, type: 2}
