@@ -1,0 +1,12 @@
+{
+  "name": "com.gonked-games.bounded-paths",
+  "version": "1.0.0",
+  "displayName": "Bounded Paths",
+  "description": "Provides tools for making paths with arbitrary boundaries.",
+  "unity": "2022.2",
+  "unityRelease": "19f1",
+  "dependencies": {
+    "com.unity.splines": "2.2.1",
+    "com.unity.burst": "1.8.4"
+  }
+}
