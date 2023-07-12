@@ -56,7 +56,7 @@ namespace BoundedPaths
 
                     Vector2 p1 = vertices[useNearVertex ? triangle.B : triangle.A];
                     Vector2 p2 = vertices[triangle.C];
-                    centerLine[centerLineIndex++] = CustomMath.Midpoint(p1, p2);
+                    centerLine[centerLineIndex++] = Math.Midpoint(p1, p2);
 
                     if (!useNearVertex)
                     {
@@ -96,12 +96,12 @@ namespace BoundedPaths
 
                 if (Vector2.Dot(nearEdge.normalized, nearHypotenuse.normalized) < Vector2.Dot(farEdge.normalized, farHypotenuse.normalized))
                 {
-                    return !CustomMath.PointIsInsideTriangle(vertices[near - 1], nearVertex, farVertex, nextNearVertex)
-                           && !CustomMath.LinesIntersect(farVertex, nextNearVertex, nearVertex, vertices[near - 1]);
+                    return !Math.PointIsInsideTriangle(vertices[near - 1], nearVertex, farVertex, nextNearVertex)
+                           && !Math.LinesIntersect(farVertex, nextNearVertex, nearVertex, vertices[near - 1]);
                 }
 
-                return CustomMath.PointIsInsideTriangle(vertices[far - 1], nearVertex, farVertex, nextFarVertex)
-                       || CustomMath.LinesIntersect(nextFarVertex, nearVertex, farVertex, vertices[near - 1]);
+                return Math.PointIsInsideTriangle(vertices[far - 1], nearVertex, farVertex, nextFarVertex)
+                       || Math.LinesIntersect(nextFarVertex, nearVertex, farVertex, vertices[near - 1]);
             }
 
             private void WriteTriangleIndices(Triangle triangle)
@@ -166,7 +166,7 @@ namespace BoundedPaths
         {
             IEnumerable<Vector3> output = b;
 
-            int startIndex = CustomMath.FindClosestPoint2D(a, b[0]);
+            int startIndex = Math.FindClosestPoint2D(a, b[0]);
             output = output.Concat(a.Skip(startIndex).Take(a.Length - 1 - startIndex));
             output = output.Concat(a.Take(startIndex));
             output = output.Append(a[startIndex]);

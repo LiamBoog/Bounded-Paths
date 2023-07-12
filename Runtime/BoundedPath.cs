@@ -17,7 +17,7 @@ namespace BoundedPaths
         
             private static readonly float[] _kernel = { 0.021f, 0.228f, 0.502f, 0.228f, 0.021f };
 
-            private int GetIndex(int i) => CustomMath.Mod(i, points.Length);
+            private int GetIndex(int i) => Math.Mod(i, points.Length);
 
             public void Execute(int index)
             {
