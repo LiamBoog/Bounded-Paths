@@ -19,7 +19,19 @@ Bounded Paths allow users to intuitively build paths to meet their specific need
 ## Getting Started
 To get started creating your own paths,
 1. Install Bounded Paths with Unity's Package Manager using the link above ([UPM Install Link](#upm-install-link)).
-2. 
+2. Create a `BoundedPath` directly, from the context menu, or by adding a `BoundedPath` component to an existing object.
+<p align="middle">
+  <img src="https://github.com/LiamBoog/Bounded-Paths/assets/48077738/4c6d1546-6b08-43f5-bdd7-efd34aa05327" width="25%"/>
+  <img src"" width="2.5%"/>
+  <img src="https://github.com/LiamBoog/Bounded-Paths/assets/48077738/dcc80da4-ae3b-4c3e-ad0b-9b4e2441312a" width="26.6%"/>
+</p>
+
+3. Edit the boundaries using [Splines](https://docs.unity3d.com/Packages/com.unity.splines@2.3/manual/getting-started-with-splines.html).
+<p align="middle" justify="top">
+  <img src="https://github.com/LiamBoog/Bounded-Paths/assets/48077738/f6fd5be8-95a3-4c5d-aee7-0b3961dda0cc" width="15%" align="top"/>
+  <img src"" width="2.5%"/>
+  <img src="https://github.com/LiamBoog/Bounded-Paths/assets/48077738/5b976647-89c7-4e9b-bc7f-b62fe2eb7146" width="40%"/>
+</p>
 
 ## Limitations
 asdfasdfasdf
