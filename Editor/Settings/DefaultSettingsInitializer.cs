@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace BoundedPaths.Editor
 {
-    [CreateAssetMenu]
     internal class DefaultSettingsInitializer : ScriptableObject
     {
         [Header(nameof(BoundedPathSettings))]
