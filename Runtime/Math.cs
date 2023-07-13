@@ -12,20 +12,20 @@ namespace BoundedPaths
         {
             [ReadOnly] public Vector3 target;
             [ReadOnly] public NativeArray<Vector3> points;
-            public int closestPoint;
+            [WriteOnly] public NativeArray<int> closestPoint;
         
             public void Execute()
             {
                 float smallestDistance = SquaredDistanceFromTarget2D(points[0]);
-                closestPoint = 0;
+                closestPoint[0] = 0;
             
                 int numPoints = points.Length;
-                for (int i = 0; i < numPoints; i++)
+                for (int i = 1; i < numPoints; i++)
                 {
                     float distance = SquaredDistanceFromTarget2D(points[i]);
                     if (distance < smallestDistance)
                     {
-                        closestPoint = i;
+                        closestPoint[0] = i;
                         smallestDistance = distance;
                     }
                 }
@@ -42,11 +42,12 @@ namespace BoundedPaths
         /// <returns>The index of the closest point in <paramref name="points"/> to the <paramref name="target"/>.</returns>
         public static int FindClosestPoint2D(Vector3[] points, Vector3 target)
         {
-            using NativeArray<Vector3> nativePoints = new (points, Allocator.TempJob); 
-            ClosestPointJob job = new () { target = target, points = nativePoints };
+            using NativeArray<Vector3> nativePoints = new (points, Allocator.TempJob);
+            using NativeArray<int> output = new(1, Allocator.TempJob);
+            ClosestPointJob job = new () { target = target, points = nativePoints, closestPoint = output};
             job.Run();
 
-            return job.closestPoint;
+            return output[0];
         }
     
         /// <summary>
