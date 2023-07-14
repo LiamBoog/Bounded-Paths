@@ -56,7 +56,7 @@ namespace BoundedPaths
         }
 
         /// <summary>
-        /// Generate a new <see cref="BoundedPathMesh"/> and centerline form the current state of <see cref="Bounds"/>' boundaries.
+        /// Generate a new <see cref="BoundedPathMesh"/> and centerline from the current state of <see cref="Bounds"/>' boundaries.
         /// </summary>
         public void UpdateMesh()
         {
