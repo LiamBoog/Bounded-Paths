@@ -14,7 +14,6 @@ namespace BoundedPaths.Editor
         /// <param name="callback">Hook used to perform the desired action on each prefab instance.</param>
         private static void HandleExitPrefabMode(PrefabStage stage, Action<GameObject> callback)
         {
-            GameObject prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(stage.assetPath);
             PrefabStage.prefabStageClosing += InvokeCallBackForPrefabInstances;
 
             void InvokeCallBackForPrefabInstances(PrefabStage currentStage)
@@ -24,6 +23,7 @@ namespace BoundedPaths.Editor
                     return;
                 }
             
+                GameObject prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(stage.assetPath);
                 foreach (GameObject instance in PrefabUtility.FindAllInstancesOfPrefab(prefabAsset))
                 {
                     callback?.Invoke(instance);
