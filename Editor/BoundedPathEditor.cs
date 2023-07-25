@@ -176,9 +176,9 @@ namespace BoundedPaths.Editor
         /// </summary>
         private void GetTargetObjectFields()
         {
-            pathBounds = this.GetOrCreateComponent<PathBounds>(nameof(pathBounds), path.gameObject, ResetPathBounds);
-            meshFilter = this.GetOrCreateComponent<MeshFilter>(nameof(meshFilter), path.gameObject, _ => {});
-            meshRenderer = this.GetOrCreateComponent<MeshRenderer>(nameof(meshRenderer), path.gameObject, ResetMeshRenderer);
+            pathBounds = this.GetOrCreateUniqueComponent<PathBounds>(nameof(pathBounds), path.gameObject, ResetPathBounds);
+            meshFilter = this.GetOrCreateUniqueComponent<MeshFilter>(nameof(meshFilter), path.gameObject, _ => {});
+            meshRenderer = this.GetOrCreateUniqueComponent<MeshRenderer>(nameof(meshRenderer), path.gameObject, ResetMeshRenderer);
         }
     
         private void HideSubComponents()

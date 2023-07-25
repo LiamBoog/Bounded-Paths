@@ -16,7 +16,7 @@ namespace BoundedPaths.Editor
         /// <param name="parent">The <see cref="GameObject"/> the desired component should be attached to.</param>
         /// <param name="initializer">Method used to initialize the desired <see cref="Component"/> after creating it.</param>
         /// <returns>An existing <see cref="Component"/> of type <typeparamref name="T"/>, or a new one, initialized with <paramref name="initializer"/>.</returns>
-        public static T GetOrCreateComponent<T>(this UnityEditor.Editor editor, string propertyName, GameObject parent, Action<T> initializer) where T : Component
+        public static T GetOrCreateUniqueComponent<T>(this UnityEditor.Editor editor, string propertyName, GameObject parent, Action<T> initializer) where T : Component
         {
             SerializedObject serializedObject = editor.serializedObject;
             SerializedProperty serializedProperty = serializedObject.FindProperty(propertyName);
@@ -45,6 +45,31 @@ namespace BoundedPaths.Editor
                 component = Undo.AddComponent<T>(parent);
                 return true;
             }
+        }
+
+        /// <summary>
+        /// Try to find a <see cref="Component"/> through a <see cref="SerializedProperty"/>. If none is found, create one
+        /// and initialize it with the given <paramref name="initializer"/>, then assign it to the target object through a
+        /// <see cref="SerializedProperty"/>. 
+        /// </summary>
+        /// <param name="propertyName">The name of the <see cref="SerializedProperty"/> used to find/assign the desired <see cref="Component"/>.</param>
+        /// <param name="parent">The <see cref="GameObject"/> the desired component should be attached to.</param>
+        /// <param name="initializer">Method used to initialize the desired <see cref="Component"/> after creating it.</param>
+        /// <returns>An existing <see cref="Component"/> of type <typeparamref name="T"/>, or a new one, initialized with <paramref name="initializer"/>.</returns>
+        public static T GetOrCreateComponent<T>(this UnityEditor.Editor editor, string propertyName, GameObject parent, Action<T> initializer) where T : Component
+        {
+            SerializedObject serializedObject = editor.serializedObject;
+            SerializedProperty serializedProperty = serializedObject.FindProperty(propertyName);
+            T output = (T) serializedProperty.objectReferenceValue;
+            if (output != null)
+                return output;
+        
+            output = Undo.AddComponent<T>(parent);
+            serializedProperty.objectReferenceValue = output;
+            serializedObject.ApplyModifiedProperties();
+            initializer(output);
+        
+            return output;
         }
 
         /// <summary>
