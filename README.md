@@ -7,7 +7,7 @@ https://github.com/LiamBoog/Bounded-Paths.git
 
 A Unity package that enables the creation of `BoundedPath` objects, which are 2D paths with arbitrary[^1] boundaries. This contrasts other path tools which generally create paths with arbitrary centerlines but a constant width. With Bounded Paths, path boundaries may be shaped however the user likes, using splines, and the path's mesh and centerline will be updated in real-time.
 
-Bounded Paths allow users to intuitively build paths to meet their specific needs directly in Unity without the hassle of manually defining meshes and centerlines. Below are some sample paths demonstrating the capabilities of Bounded Paths. (Note: the centerline visualization shown is not included with the package but is used to illustrate the `BoudnedPath`'s automatically generated centerline.)
+Bounded Paths allow users to intuitively build paths to meet their specific needs directly in Unity without the hassle of manually defining meshes and centerlines. Below are some sample paths demonstrating the capabilities of Bounded Paths. (Note: the centerline visualization shown is not included with the package but is used to illustrate the `BoundedPath`'s automatically generated centerline.)
 <p align="middle">
   <img src="https://github.com/LiamBoog/Bounded-Paths/assets/48077738/0ceb7d6f-8379-41fa-b11f-854556399bc4" width="40%"/>
   <img src"" width="2.5%"/>
